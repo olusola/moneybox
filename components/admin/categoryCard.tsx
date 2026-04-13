@@ -68,8 +68,7 @@ export const CategoryCard = ({
               <AlertDialogHeader>
                 <AlertDialogTitle>Delete {category.name}?</AlertDialogTitle>
                 <AlertDialogDescription>
-                  This will not delete associated products but they will become
-                  uncategorised.
+                  Products will not be deleted. They will become uncategorised.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>

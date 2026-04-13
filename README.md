@@ -10,7 +10,7 @@ Install dependencies:
 pnpm install
 ```
 
-Two dev servers are required — open two terminal tabs:
+Two dev servers are required - open two terminal tabs:
 
 ```bash
 # Terminal 1: API server (json-server)
@@ -29,6 +29,14 @@ Then open [http://localhost:3000](http://localhost:3000).
 | `/`      | Explore Accounts - carousel with expandable product cards |
 | `/admin` | Admin — create, edit and delete products and categories   |
 
+## Accessibility
+
+- Semantic HTML throughout (`<header>`, `<main>`, `<nav>`, `<section>`, `<ul>`)
+- All interactive elements are keyboard-navigable with visible focus rings
+- Carousel and accordion controls are fully operable via Tab and Enter/Space
+- ARIA labels on navigation buttons and live regions for dynamic content
+- Form inputs linked to error messages via `aria-describedby`
+
 ## Tech Stack
 
 - **Next.js 16** — App Router, server components, TypeScript
@@ -38,7 +46,7 @@ Then open [http://localhost:3000](http://localhost:3000).
 - **React Hook Form** + **Zod** — form validation
 - **Vitest** + **React Testing Library** — tests
 
-## Architecture
+## Architecture layers and design decisions
 
 ```
 ┌──────────────────────────────────────────────────────┐
@@ -57,8 +65,6 @@ Then open [http://localhost:3000](http://localhost:3000).
                       │
                    db.json
 ```
-
-The app is structured in distinct layers, each with a clear responsibility:
 
 **Data layer (json-server)**  
 A lightweight JSON-based REST server that acts as the data store, exposing products and categories on port 3001. It supports full CRUD operations, so the admin interface can create, update and delete products and categories without any backend code changes.
@@ -79,7 +85,7 @@ The Next.js API routes proxy requests between the frontend and json-server. Busi
 | `PUT`    | `/api/products/:id`   | Update a product by ID                              |
 | `DELETE` | `/api/products/:id`   | Delete a product by ID                              |
 
-**Data fetching and server state (React Query)**  
+**Data fetching and server state management (React Query)**  
 React Query manages all server state. On the server, `QueryClient.prefetchQuery` pre-fetches categories and products, and the dehydrated state is passed to the client via `HydrationBoundary` — avoiding a loading flash on first render. On the client, React Query handles loading and error states and automatically invalidates the cache after any mutation.
 
 **Server components**  

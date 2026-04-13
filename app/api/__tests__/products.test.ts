@@ -7,7 +7,7 @@ import { PUT, DELETE } from "@/app/api/products/[id]/route"
 const mockFetch = vi.fn()
 vi.stubGlobal("fetch", mockFetch)
 
-function makeProducts(ids: string[]) {
+function createDummyProducts(ids: string[]) {
   return ids.map((id) => ({
     id,
     categoryId: "1",
@@ -27,13 +27,12 @@ afterEach(() => {
 
 describe("GET /api/products", () => {
   it("returns all products", async () => {
-    const products = makeProducts(["1", "2", "3"])
+    const products = createDummyProducts(["1", "2", "3"])
     mockFetch.mockResolvedValueOnce({
       ok: true,
       status: 200,
       json: async () => products,
     })
-
     const req = new NextRequest("http://localhost:3000/api/products")
     const res = await GET(req)
     const body = await res.json()
@@ -47,7 +46,7 @@ describe("GET /api/products", () => {
   })
 
   it("filters by categoryId when param is provided", async () => {
-    const products = makeProducts(["1"])
+    const products = createDummyProducts(["1"])
     mockFetch.mockResolvedValueOnce({
       ok: true,
       status: 200,
