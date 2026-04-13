@@ -4,16 +4,16 @@ import {
   dehydrate,
 } from "@tanstack/react-query"
 import type { Metadata } from "next"
-import { CategoryCarousel } from "@/components/categoryCarousel"
 import { fetchCategories, fetchProducts } from "@/lib/api"
 import { categoriesQueryKey } from "@/hooks/useCategories"
 import { productsQueryKey } from "@/hooks/useProducts"
+import { AdminClient } from "@/components/admin/adminClient"
 
 export const metadata: Metadata = {
-  title: "Explore Accounts | Moneybox",
+  title: "Manage Products | Moneybox",
 }
 
-const Page = async () => {
+const AdminPage = async () => {
   const queryClient = new QueryClient()
 
   await Promise.all([
@@ -29,11 +29,14 @@ const Page = async () => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className="mx-auto max-w-4xl px-6 py-10">
-        <CategoryCarousel />
+      <div className="mx-auto max-w-5xl px-6 py-10">
+        <h1 className="mb-8 text-2xl font-bold tracking-tight">
+          Manage Products
+        </h1>
+        <AdminClient />
       </div>
     </HydrationBoundary>
   )
 }
 
-export default Page
+export default AdminPage

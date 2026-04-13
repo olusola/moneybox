@@ -1,0 +1,97 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Savings",
+      "slug": "savings"
+    },
+    {
+      "id": "2",
+      "name": "Home Buying",
+      "slug": "home-buying"
+    },
+    {
+      "id": "3",
+      "name": "Investing",
+      "slug": "investing"
+    },
+    {
+      "id": "4",
+      "name": "Retirement",
+      "slug": "retirement"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "categoryId": "1",
+      "name": "Cash ISA",
+      "icon": "cash_isa.svg",
+      "description": "A tax-free savings account where every penny of interest is protected from tax."
+    },
+    {
+      "id": "2",
+      "categoryId": "1",
+      "name": "Open Access Cash ISA",
+      "icon": "open_access_cash_isa.svg",
+      "description": "A flexible, tax-free savings account. Withdraw your money at any time without penalty."
+    },
+    {
+      "id": "3",
+      "categoryId": "1",
+      "name": "Simple Saver",
+      "icon": "simple_saver.svg",
+      "description": "A straightforward savings account with no complicated rules, just a simple way to save."
+    },
+    {
+      "id": "4",
+      "categoryId": "1",
+      "name": "32 Day Notice Account",
+      "icon": "32_day_notice.svg",
+      "description": "Requires 32 days' notice before withdrawal, rewarded with a more competitive interest rate."
+    },
+    {
+      "id": "5",
+      "categoryId": "1",
+      "name": "95 Day Notice Account",
+      "icon": "95_day_notice.svg",
+      "description": "A 95-day notice period for withdrawals, offering a higher rate for money you won't need soon."
+    },
+    {
+      "id": "6",
+      "categoryId": "2",
+      "name": "Lifetime ISA",
+      "icon": "lifetime_isa.svg",
+      "description": "Save up to £4,000/year and get a 25% government bonus of up to £1,000 free money annually."
+    },
+    {
+      "id": "7",
+      "categoryId": "3",
+      "name": "Stocks & Shares ISA",
+      "icon": "stocks_shares_isa.svg",
+      "description": "Invest tax-efficiently in a range of funds, sheltering returns from income and capital gains tax."
+    },
+    {
+      "id": "8",
+      "categoryId": "3",
+      "name": "Junior ISA",
+      "icon": "junior_isa.svg",
+      "description": "A tax-free account for children. Contribute up to £9,000/year towards their financial future."
+    },
+    {
+      "id": "9",
+      "categoryId": "3",
+      "name": "General Investment Account",
+      "icon": "general_investment_account.svg",
+      "description": "A flexible investment account with no annual limits, letting you invest beyond your ISA allowance."
+    },
+    {
+      "id": "10",
+      "categoryId": "4",
+      "name": "Personal Pension",
+      "icon": "personal_pension.svg",
+      "description": "Take control of your retirement by tracking your pension and managing investments in one place."
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
